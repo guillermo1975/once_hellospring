@@ -16,57 +16,45 @@ import ch.qos.logback.core.property.ResourceExistsPropertyDefiner;
 @Controller
 public class MainController {
 
-    @GetMapping("/calculadora")
+
+
+
+    @GetMapping("/test")
     @ResponseBody
-    public String calculadora(@RequestParam("numero1") Double num1,
-                            @RequestParam(value ="numero2" , required = false) Double num2 ,
-                            @RequestParam("operador")  String operador){
-double res =0;
-if (operador.equals ("+") || operador.equals("-") || operador.equals("*") || operador.equals("/") || operador.equals("raiz")){
+    public String testdelocura(@RequestParam("opcion1") String opcion1, @RequestParam("opcion2") String opcion2,
+            @RequestParam("opcion3") String opcion3, @RequestParam("opcion4") String opcion4) {
+    int suma=0;
+    String respuesta1= "nunca";
+    String respuesta2= "una vez al año ";
+    String respuesta3= "a menudo";
+    String respuesta4= "son las 3 menos cuarto";
 
-}
-
-else {return "debes utilizar + - * / " ;
-}
-
-switch (operador){
-case "+":
-res = num1 + num2 ;
-break;
-case "-":
-res = num1 - num2 ;
-break;
-case "*":
-res = num1 * num2;
-break;
-case "/":
-res = num1 / num2;
-break;
-case "raiz":
-res = Math.sqrt(num1);
-break;
-
-} return " el resultado de " + num1 + " " + operador + " " + num2 + " es " + res;  
-      
-    } 
-   
-    @GetMapping("/ingles")
-    @ResponseBody
-    public String helloWorld(){
-        return "Hello World";
+    System.out.println("¿CON QUE FRECUENCIA TE DICEN QUE ESTAS LOCO?");
+    
+    if (respuesta.equals(respuesta1) ){
+            suma =2;}
+        else if (respuesta.equals(respuesta2)){
+            suma =5;}
+        else if (respuesta.equals(respuesta3)){
+            suma =8;}
+        else if (respuesta.equals(respuesta4)){
+            suma =10;}
     }
+    
+
+
+
+
+
+    }
+
+
+
     @GetMapping("/nuevo")
-    public ModelAndView helloHTML (){
-    ModelAndView respuesta =new ModelAndView("hello");
-    String msg = "Hola mundo html";
-    respuesta.addObject("mensaje",msg);
-    return respuesta;
+    public ModelAndView helloHTML() {
+        ModelAndView respuesta = new ModelAndView("hello");
+        String msg = "Hola mundo html";
+        respuesta.addObject("mensaje", msg);
+        return respuesta;
     }
 }
-
-
-
-
-
-
-
